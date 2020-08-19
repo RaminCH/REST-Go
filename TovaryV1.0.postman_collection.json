@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "a462c346-f459-4f4f-8152-f5727ce052f0",
+		"name": "TovaryV1.0",
+		"description": "        ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tovary/Get",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/items",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"items"
+					]
+				},
+				"description": "Vozvrashayem vse tovary"
+			},
+			"response": []
+		},
+		{
+			"name": "Get/item/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Getting item with id"
+			},
+			"response": []
+		},
+		{
+			"name": "Post/Item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    id: 1, \n    item: \"chair\", \n    amount: 20, \n    price: \"123.123\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8000/item?Content-Type=application/json",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"item"
+					],
+					"query": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					]
+				},
+				"description": "Dobavlayem item"
+			},
+			"response": []
+		},
+		{
+			"name": "Put /item",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    id: 1, \n    item: \"chair\", \n    amount: 20, \n    price: \"123.123\"\n}"
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete/item",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Deleting item"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
