@@ -14,10 +14,10 @@ import (
 
 //Article stuct ...
 type Item struct {
-	id     int    `json:"id"`
-	item   string `json:"item"`
-	amount int    `json:"amount"`
-	price  string `json:"price"`
+	Id     int    `json:"id"`
+	Item   string `json:"item"`
+	Amount int    `json:"amount"`
+	Price  string `json:"price"`
 }
 
 type ErrorMessage struct {
@@ -52,7 +52,7 @@ func GetItemWithId(w http.ResponseWriter, r *http.Request) {
 	}
 
 	for _, item := range Items {
-		if item.id == id {
+		if item.Id == id {
 			find = true
 			json.NewEncoder(w).Encode(item)
 		}
@@ -77,6 +77,7 @@ func PostNewItem(w http.ResponseWriter, r *http.Request) {
 	json.Unmarshal(reqBody, &item)    // Считываем все из тела зпроса в подготовленный пустой объект Article
 	w.WriteHeader(http.StatusCreated) // Изменить статус код запроса на 201
 	Items = append(Items, item)
+	fmt.Println(Items)
 	json.NewEncoder(w).Encode(item) //После добавления новой статьи возвращает добавленную
 }
 
@@ -94,7 +95,7 @@ func PutExistsItem(w http.ResponseWriter, r *http.Request) {
 	find := false
 
 	for index, item := range Items {
-		if item.id == id {
+		if item.Id == id {
 			find = true
 			reqBody, _ := ioutil.ReadAll(r.Body)
 			w.WriteHeader(http.StatusAccepted)     // Изменяем статус код на 202
@@ -123,7 +124,7 @@ func DeleterItemWithId(w http.ResponseWriter, r *http.Request) {
 	find := false
 
 	for index, item := range Items {
-		if item.id == id {
+		if item.Id == id {
 			find = true
 			w.WriteHeader(http.StatusAccepted) // Изменить статус код на 202
 			Items = append(Items[:index], Items[index+1:]...)
